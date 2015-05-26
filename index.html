@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<!-- modal css -->
+		<link rel="stylesheet" type="text/css" href="css/modal.css"/>
+		<link rel="stylesheet" type="text/css" href="css/meganta.css"/>
+
+		<!-- js -->
+		<script type="text/javascript" src="js/jquery-1-11-2.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/modernizr.custom.js"></script>
+		<script type="text/javascript" src="js/meganta.js"></script>
+		<title>Meganta</title>
+	</head>
+
+	<body>
+		<div class="wrapper full-bg">
+			<div class="row">
+				<div class="col-md-3 col-md-offset-1 text-center logo-wrapper">
+					<img class="logo-img" src="img/logo.svg"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-5 hidden-sm hidden-xs">
+						<img class="left-pic" src="img/hold-phone.png"/>
+				</div>
+				<div class="col-md-7">
+					<div class='form-group'>
+						<div class=" input-wrapper">
+							<div class="col-md-7 col-sm-7">
+								<input class="round-corner text-center" type="email" id="sub_email" placeholder="E-mail Address"/>
+							</div>
+							<div class="col-md-5 col-sm-5">
+								<button class="round-corner md-trigger" data-modal="popup-modal" type="button" onClick="setModal(event)">Subscribe</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- popuo modal -->
+			<div class="md-modal md-effect-20" id="popup-modal">
+				<div class="md-content">
+					<h3>Thanks!</h3>
+					<div class="md-close">
+						<img src="img/pop-close.svg"/>
+					</div>
+					<div>
+						<p>Lorem ipsum dolor sit amet, consectorer adipsiocn. Docnas nec pahater lacus. Donec eget porta urna.</p>
+						<p> Proin eget logorties enim. Inteer imperdiet consecture enim ut lobortis. Maecenas fermentun augue et odio convallis faucibus.</p>
+					</div>
+					
+				</div>
+			</div>
+			<div class="md-overlay"></div>
+			<footer>
+			
+					<div class='social-wrapper'>
+						<img class="social-icon" src="img/facebook.svg"/>
+						<img class="social-icon" src="img/twitter.svg"/>
+						<img class="social-icon" src="img/instagram.svg"/>
+						<img class="social-icon" src="img/pinterest.svg"/>
+						<img class="social-icon" src="img/g+.svg"/>
+					</div>
+				
+			</footer>
+
+		</div>
+
+		<script type="text/javascript" src="js/classie.js"></script>
+		<script type="text/javascript" src="js/modalEffects.js"></script>
+		<script type="text/javascript" src="js/scc-filters-polyfill.js"></script>
+		<script type="text/javascript" src="js/cssParser.js"></script>
+		<script type="text/javascript">
+			$(window).load(function(){
+				initialModal();
+			});
+
+			$(window).resize(function(){
+				initialModal();
+			});
+
+			function initialModal(){
+
+				var button = $(".md-trigger");
+				// $('.md-modal').css('margin-left',modal_left);
+				$('.md-modal').css('left', button.offset().left);
+				// $('.md-modal').css('bottom', $(window).height()-button.offset().top-50);
+				$('.md-modal').css('right',$(window).height()-button.offset().left-230);
+				$('.md-modal').css('top', button.offset().top);
+				$('.md-modal').css('width', 200);
+				$('.md-modal').css('height', 50);
+				 // $('.md-modal').css('bottom', $(window).height()-button.offset().top-80);
+				button.css('opacity',1).duration(300);
+				
+			}
+
+			function setModal(){
+				var window_width = $(window).width();
+				var window_height = $(window).height();
+				var button = $(".md-trigger");
+				var modal_left;
+				var modal_top;
+				var modal_width;
+				var modal_height = 'auto';
+				
+				if( window_width > 991){
+					console.log('web');
+					modal_left = window_width-button.offset().left-button.width();
+					modal_width = window_width - modal_left*2;
+					modal_top = window_height - button.offset().top;
+					
+				}
+				else if( window_width  <= 991 &&  window_width  >=768){
+					console.log('tablet');
+					modal_left = window_width-button.offset().left-button.width();
+					modal_width = window_width - modal_left*2;
+					modal_top = window_height*0.25;
+
+				}
+				else if( window_width < 768){
+					console.log('mobile');
+
+					modal_left = 0;
+					modal_top = 0;
+					modal_width = '100%';
+					modal_height = '100%';
+					
+				}
+				$('.md-modal').css('left', modal_left);
+				$('.md-modal').css('width', modal_width);
+				$('.md-modal').css('height', modal_height);
+				$('.md-modal').css('top', modal_top);
+
+				$('.md-effect-20.md-content').css('left', button.offset().left);
+				$('.md-show.md-effect-20 .md-content').css('left',0);
+				$('.md-effect-20.md-content').css('top', button.offset().top);
+				$('.md-show.md-effect-20 .md-content').css('top',0);
+				button.css('opacity',0).duration(300);
+			}
+		</script>
+	</body>
+</html>
