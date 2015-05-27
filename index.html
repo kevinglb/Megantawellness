@@ -12,7 +12,7 @@
 		<!-- js -->
 		<script type="text/javascript" src="js/jquery-1-11-2.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/modernizr.custom.js"></script>
+		<!-- <script type="text/javascript" src="js/modernizr.custom.js"></script> -->
 		<script type="text/javascript" src="js/meganta.js"></script>
 		<title>Meganta</title>
 	</head>
@@ -29,16 +29,16 @@
 						<img class="left-pic" src="img/hold-phone.png"/>
 				</div>
 				<div class="col-md-7">
-					<div class='form-group'>
+					<form>
 						<div class=" input-wrapper">
 							<div class="col-md-7 col-sm-7">
-								<input class="round-corner text-center" type="email" id="sub_email" placeholder="E-mail Address"/>
+								<input class="round-corner text-center" type="email" id="sub_email" placeholder="E-mail Address" />
 							</div>
 							<div class="col-md-5 col-sm-5">
-								<button class="round-corner md-trigger" data-modal="popup-modal" type="button" onClick="setModal(event)">Subscribe</button>
+								<button class="round-corner md-trigger" data-modal="popup-modal" type="button" onClick="setModal()">Subscribe</button>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 
@@ -73,8 +73,8 @@
 
 		<script type="text/javascript" src="js/classie.js"></script>
 		<script type="text/javascript" src="js/modalEffects.js"></script>
-		<script type="text/javascript" src="js/scc-filters-polyfill.js"></script>
-		<script type="text/javascript" src="js/cssParser.js"></script>
+		 <!-- <script type="text/javascript" src="js/scc-filters-polyfill.js"></script> -->
+		<!-- <script type="text/javascript" src="js/cssParser.js"></script> -->
 		<script type="text/javascript">
 			$(window).load(function(){
 				initialModal();
@@ -95,7 +95,7 @@
 				$('.md-modal').css('width', 200);
 				$('.md-modal').css('height', 50);
 				 // $('.md-modal').css('bottom', $(window).height()-button.offset().top-80);
-				button.css('opacity',1).duration(300);
+				button.css('opacity',1);
 				
 			}
 
@@ -140,7 +140,13 @@
 				$('.md-show.md-effect-20 .md-content').css('left',0);
 				$('.md-effect-20.md-content').css('top', button.offset().top);
 				$('.md-show.md-effect-20 .md-content').css('top',0);
-				button.css('opacity',0).duration(300);
+				button.css('opacity',0);
+				saveEmail();
+			}
+
+			function saveEmail(){
+				var email = $('#sub_email').val();
+				
 			}
 		</script>
 	</body>

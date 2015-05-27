@@ -46,6 +46,12 @@ body{
 	color: #D6326D;
 	padding: 5px 0;
 }
+.input-wrapper input::webkit-input-placeholder{
+	color: #D6326D;
+}
+.input-wrapper input::moz-placeholder{
+	color: #D6326D;
+}
 .input-wrapper button{
 	width: 200px;
 	margin-left: 30px;
@@ -106,6 +112,9 @@ footer{
 }
 /* responsive css */
 @media screen and (max-width: 991px){
+	.logo-img{
+		max-width: 300px;
+	}
 	.input-wrapper{
 		margin: 25% auto 0 auto;
 	}
