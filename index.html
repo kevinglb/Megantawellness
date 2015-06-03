@@ -7,17 +7,20 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<!-- modal css -->
 		<link rel="stylesheet" type="text/css" href="css/modal.css"/>
-		<link rel="stylesheet" type="text/css" href="css/meganta.css"/>
+		<link rel="stylesheet" type="text/css" href="css/magenta.css"/>
 
 		<!-- js -->
 		<script type="text/javascript" src="js/jquery-1-11-2.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<!-- <script type="text/javascript" src="js/modernizr.custom.js"></script> -->
-		<script type="text/javascript" src="js/meganta.js"></script>
-		<title>Meganta</title>
+	
+		<title>Magenta Wellness</title>
 	</head>
 
 	<body>
+		<div id="spinner">
+			<div class="spinner"></div>
+		</div> 
 		<div class="wrapper full-bg">
 			<div class="row">
 				<div class="col-md-3 col-md-offset-1 text-center logo-wrapper">
@@ -29,29 +32,35 @@
 						<img class="left-pic" src="img/hold-phone.png"/>
 				</div>
 				<div class="col-md-7">
-					<form>
+				</div>
+			</div>
+			<div class="sub-form">
+				<form>
 						<div class=" input-wrapper">
-							<div class="col-md-7 col-sm-7">
+							<div class="row">
+								<div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-sm-10 col-sm-offset-1">
 								<input class="round-corner text-center" type="email" id="sub_email" placeholder="E-mail Address" />
+								</div>
 							</div>
-							<div class="col-md-5 col-sm-5">
-								<button class="round-corner md-trigger" data-modal="popup-modal" type="button" onClick="setModal()">Subscribe</button>
+							<div class="row">
+								<div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-sm-10 col-sm-offset-1">
+									<button class="round-corner md-trigger" data-modal="popup-modal" type="button" onClick="showModal()">Subscribe</button>
+								</div>
 							</div>
 						</div>
 					</form>
-				</div>
 			</div>
 
 			<!-- popuo modal -->
 			<div class="md-modal md-effect-20" id="popup-modal">
 				<div class="md-content">
-					<h3>Thanks!</h3>
-					<div class="md-close">
+					<h3 style="display:none;">Thanks!</h3>
+					<div class="close" onClick="hideModal()" style="display:none;">
 						<img src="img/pop-close.svg"/>
 					</div>
-					<div>
+					<div style="display:none">
 						<p>Lorem ipsum dolor sit amet, consectorer adipsiocn. Docnas nec pahater lacus. Donec eget porta urna.</p>
-						<p> Proin eget logorties enim. Inteer imperdiet consecture enim ut lobortis. Maecenas fermentun augue et odio convallis faucibus.</p>
+						<p> Proin eget logorties enim. Inteer imperdiet consecture enim ut lobortis.</p>
 					</div>
 					
 				</div>
@@ -77,6 +86,7 @@
 		<!-- <script type="text/javascript" src="js/cssParser.js"></script> -->
 		<script type="text/javascript">
 			$(window).load(function(){
+				$("#spinner").fadeOut('slow');
 				initialModal();
 			});
 
@@ -88,58 +98,138 @@
 
 				var button = $(".md-trigger");
 				// $('.md-modal').css('margin-left',modal_left);
-				$('.md-modal').css('left', button.offset().left);
+				
+				
+				
+
+				if($(window).width() <768){
+					$('.md-modal').css('left','0');
+					// $('.md-modal').css('bottom', $(window).height()-button.offset().top-50);
+					$('.md-modal ').css('top','0');
+					$('.md-modal ').css('width', '100%');
+					$('.md-modal ').css('height', '100%');
+					$('.md-modal ').css('bottom', '0');
+					
+				
+					$('.md-modal .md-content').css('left', '50%');
 				// $('.md-modal').css('bottom', $(window).height()-button.offset().top-50);
-				$('.md-modal').css('right',$(window).height()-button.offset().left-230);
-				$('.md-modal').css('top', button.offset().top);
-				$('.md-modal').css('width', 200);
-				$('.md-modal').css('height', 50);
+					$('.md-modal .md-content').css('top', button.offset().top+20);
+					$('.md-modal .md-content').css('width', '0%');
+					$('.md-modal .md-content').css('height', button.height());
+					$('.md-modal .md-content').css('bottom', $(window).height()-button.offset().top-button.height());
+				}
+				else{
+					$('.md-modal').css('left','0');
+					// $('.md-modal').css('bottom', $(window).height()-button.offset().top-50);
+					$('.md-modal ').css('top','0');
+					$('.md-modal ').css('width', '100%');
+					$('.md-modal ').css('height', '100%');
+					$('.md-modal ').css('bottom', '0');
+					
+					$('.md-modal').css('left', button.offset().left+button.width()/2-60);
+					// $('.md-modal').css('bottom', $(window).height()-button.offset().top-50);
+					$('.md-modal ').css('top', button.offset().top+20);
+					$('.md-modal ').css('width', '120');
+					$('.md-modal ').css('height', button.height());
+					$('.md-modal ').css('bottom', $(window).height()-button.offset().top-button.height());
+					$('.md-modal .md-content').css('left', '50%');
+					// $('.md-modal').css('bottom', $(window).height()-button.offset().top-50);
+					$('.md-modal .md-content').css('top', '100%');
+					$('.md-modal .md-content').css('width', '0%');
+					$('.md-modal .md-content').css('height', button.height());
+					$('.md-modal .md-content').css('bottom', $(window).height()-button.offset().top-button.height());
+				}
+				$('.md-modal .md-content').children().css('display', 'none');
+				console.log($(window).height()-button.offset().top-button.height());
 				 // $('.md-modal').css('bottom', $(window).height()-button.offset().top-80);
 				button.css('opacity',1);
 				
 			}
+			function hideModal(){
+				var button = $(".md-trigger");
+				if($(window).width() <768){
+					$('.md-modal .md-content').children().delay(200).fadeOut();
+					//$('.md-modal .md-content').css('bottom', '0');
+				
+					$('.md-modal .md-content').css('width', '0%');
+					$('.md-modal .md-content').css('top', button.offset().top+20);
+					$('.md-modal .md-content').css('height','0');
+				
+					$('.md-modal .md-content').css('left', '50%');
+					
+				}
+				else{	
+					$('.md-modal .md-content').children().delay(200).fadeOut();
+					//$('.md-modal .md-content').css('bottom', '0');
+				
+					$('.md-modal .md-content').css('width', '0%');
+					$('.md-modal .md-content').css('top', '100%');
+					$('.md-modal .md-content').css('height','0');
+				
+					$('.md-modal .md-content').css('left', '50%');
+				
+				}
+					$('.md-modal').delay(600).removeClass('md-show'); 
+					$('.md-overlay').css('visibility','hidden');
+				//  // $('.md-modal').css('bottom', $(window).height()-button.offset().top-80);
+				button.css('opacity',1);
+			}
 
-			function setModal(){
+
+			function showModal(){
 				var window_width = $(window).width();
 				var window_height = $(window).height();
 				var button = $(".md-trigger");
-				var modal_left;
-				var modal_top;
-				var modal_width;
-				var modal_height = 'auto';
+
 				
 				if( window_width > 991){
 					console.log('web');
-					modal_left = window_width-button.offset().left-button.width();
-					modal_width = window_width - modal_left*2;
-					modal_top = window_height - button.offset().top;
+					$('.md-modal').css('width', '40%');
+				    // $('.md-modal').css('height', 'auto');
+				    $('.md-modal').css('left', '30%');
+					$('.md-modal').css('top', '25%');
+					$('.md-modal').css('height', 'auto');
+					$('.md-overlay').css('visibility','visible');
+					
+					
+					$('.md-modal .md-content').css('left','0');
+					$('.md-modal .md-content').css('height', '100%');
+					$('.md-modal .md-content').css('top','0');
+			
+				    $('.md-modal .md-content').css('width', '100%');
+				    
+					$('.md-modal .md-content').children().delay(300).fadeIn();
+						
 					
 				}
 				else if( window_width  <= 991 &&  window_width  >=768){
 					console.log('tablet');
-					modal_left = window_width-button.offset().left-button.width();
-					modal_width = window_width - modal_left*2;
-					modal_top = window_height*0.25;
+					$('.md-modal').css('width', '60%');
+				    $('.md-modal').css('height', 'auto');
 
+				    $('.md-modal').css('left', '20%');
+					$('.md-modal').css('top', '20%');
+					$('.md-overlay').css('visibility','visible');
+					$('.md-modal .md-content').css('left','0');
+					$('.md-modal .md-content').css('height', '100%');
+					$('.md-modal .md-content').css('top','0');
+			
+				    $('.md-modal .md-content').css('width', '100%');
+				    
+					$('.md-modal .md-content').children().delay(300).fadeIn();
 				}
 				else if( window_width < 768){
 					console.log('mobile');
 
-					modal_left = 0;
-					modal_top = 0;
-					modal_width = '100%';
-					modal_height = '100%';
-					
+					$('.md-modal .md-content').css('width', '100%');
+				    $('.md-modal .md-content').css('height', '100%');
+				    $('.md-modal .md-content').css('top', '0');
+				    $('.md-modal .md-content').css('left', '0');
+					$('.md-modal .md-content').children().delay(300).fadeIn();
 				}
-				$('.md-modal').css('left', modal_left);
-				$('.md-modal').css('width', modal_width);
-				$('.md-modal').css('height', modal_height);
-				$('.md-modal').css('top', modal_top);
+				$('.md-overlay').css('display','block');
 
-				$('.md-effect-20.md-content').css('left', button.offset().left);
-				$('.md-show.md-effect-20 .md-content').css('left',0);
-				$('.md-effect-20.md-content').css('top', button.offset().top);
-				$('.md-show.md-effect-20 .md-content').css('top',0);
+
 				button.css('opacity',0);
 				saveEmail();
 			}

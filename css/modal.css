@@ -27,9 +27,9 @@ perspective effects (not including the modals and the overlay).
 	position: fixed;
 	
 	
-	/*width: 50%;*/
-	/*max-width: 800px;*/
-	/*min-width: 320px;*/
+	
+	margin: 0 auto;
+	
 	border-radius: 1.2em;
 	height: auto;
 	z-index: 2000;
@@ -37,7 +37,7 @@ perspective effects (not including the modals and the overlay).
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
-	transition: all 0.5s;
+	transition: all 0.6s;
 	/*-webkit-transform: translateX(-50%) translateY(-50%);
 	-moz-transform: translateX(-50%) translateY(-50%);
 	-ms-transform: translateX(-50%) translateY(-50%);
@@ -72,9 +72,10 @@ perspective effects (not including the modals and the overlay).
 .md-content {
 	color: #fff;
 	
-	position: relative;
+	position: absolute;
 	border-radius: 1.2em;
 	margin: 0 auto;
+	overflow: hidden;
 }
 
 .md-content h3 {
@@ -88,9 +89,9 @@ perspective effects (not including the modals and the overlay).
 }
 
 .md-content > div {
-	padding: 20px 50px 30px;
+	padding: 20px 30px 30px;
 	margin: 0;
-	font-weight: 300
+	font-weight: 300;
 }
 
 .md-content > div p {
@@ -117,11 +118,10 @@ perspective effects (not including the modals and the overlay).
 
 /*customeized effect of expanding*/
 .md-effect-20 .md-content{
-
 	opacity: 0;
-	-webkit-transition: all 0.8s;
-	-moz-transition: all 0.8s;
-	transition: all 0.8s;
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	transition: all 0.6s;
 }
 
 .md-show.md-effect-20 .md-content{
