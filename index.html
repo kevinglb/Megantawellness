@@ -54,13 +54,13 @@
 			<!-- popuo modal -->
 			<div class="md-modal md-effect-20" id="popup-modal">
 				<div class="md-content">
-					<h3 style="display:none;">Thanks!</h3>
+					
 					<div class="close" onClick="hideModal()" style="display:none;">
 						<img src="img/pop-close.svg"/>
 					</div>
-					<div style="display:none">
-						<p>Lorem ipsum dolor sit amet, consectorer adipsiocn. Docnas nec pahater lacus. Donec eget porta urna.</p>
-						<p> Proin eget logorties enim. Inteer imperdiet consecture enim ut lobortis.</p>
+					<div style="display:none" class="md-text text-center">
+						<p>Thank you for subscribing to Magenta Wellness.</p>
+						<p>We'll be in contact to let you know about our exciting launch soon. </p>
 					</div>
 					
 				</div>
@@ -184,17 +184,17 @@
 				
 				if( window_width > 991){
 					console.log('web');
-					$('.md-modal').css('width', '40%');
+					$('.md-modal').css('width', '50%');
 				    // $('.md-modal').css('height', 'auto');
-				    $('.md-modal').css('left', '30%');
+				    $('.md-modal').css('left', '25%');
 					$('.md-modal').css('top', '25%');
 					$('.md-modal').css('height', 'auto');
 					$('.md-overlay').css('visibility','visible');
 					
 					
 					$('.md-modal .md-content').css('left','0');
-					$('.md-modal .md-content').css('height', '100%');
-					$('.md-modal .md-content').css('top','0');
+					$('.md-modal .md-content').css('height', '80%');
+					$('.md-modal .md-content').css('top','10%');
 			
 				    $('.md-modal .md-content').css('width', '100%');
 				    
@@ -204,15 +204,15 @@
 				}
 				else if( window_width  <= 991 &&  window_width  >=768){
 					console.log('tablet');
-					$('.md-modal').css('width', '60%');
+					$('.md-modal').css('width', '50%');
 				    $('.md-modal').css('height', 'auto');
 
-				    $('.md-modal').css('left', '20%');
-					$('.md-modal').css('top', '20%');
+				    $('.md-modal').css('left', '25%');
+					$('.md-modal').css('top', '25%');
 					$('.md-overlay').css('visibility','visible');
 					$('.md-modal .md-content').css('left','0');
-					$('.md-modal .md-content').css('height', '100%');
-					$('.md-modal .md-content').css('top','0');
+					$('.md-modal .md-content').css('height', '90%');
+					$('.md-modal .md-content').css('top','5%');
 			
 				    $('.md-modal .md-content').css('width', '100%');
 				    
